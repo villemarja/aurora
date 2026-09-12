@@ -299,8 +299,8 @@
       PAIVAT.forEach((paiva, i) => { if (lisaaPaiva(paiva, i, false)) nakyviaPaivia++; });
 
       if (!isNextWeek && nakyviaPaivia === 0) {
-        viikko.innerHTML = '';
-        PAIVAT.forEach((paiva, i) => lisaaPaiva(paiva, i, true));
+        // Viikonloppu: kuluva viikko on ohi eikä uutta ole julkaistu
+        viikko.innerHTML = '<p class="latausviesti">Ensi viikon lista tulossa pian.</p>';
       }
     }
 
