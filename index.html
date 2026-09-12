@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora — Lounasravintola Tampere | Lounas 13,50 €</title>
+  <meta name="description" content="Aurora on Tamperen lounasravintola. Lounas 13,50 € tarjoillaan arkisin 11:00–14:00.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://aurora.i2i.fi/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <meta property="og:type" content="restaurant.restaurant">
+  <meta property="og:site_name" content="Aurora Lounasravintola">
+  <meta property="og:title" content="Aurora — Lounasravintola Tampere">
+  <meta property="og:description" content="Lounas 13,50 € arkisin 11:00–14:00.">
+  <meta property="og:url" content="https://aurora.i2i.fi/">
+  <meta property="og:image" content="https://aurora.i2i.fi/og-image.png">
+  <meta property="og:locale" content="fi_FI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aurora — Lounasravintola Tampere">
+  <meta name="twitter:description" content="Lounas 13,50 € arkisin 11:00–14:00.">
+  <meta name="twitter:image" content="https://aurora.i2i.fi/og-image.png">
+  <meta name="theme-color" content="#2d4a1f">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "@id": "https://aurora.i2i.fi/#restaurant",
+    "name": "Aurora Lounasravintola",
+    "alternateName": "aurora",
+    "description": "Lounasravintola Tamperessa. Lounas 13,50 € tarjoillaan arkisin 11:00–14:00.",
+    "url": "https://aurora.i2i.fi/",
+    "telephone": "+35840 123 4567",
+    "email": "aurora.test@example.com",
+    "priceRange": "€",
+    "servesCuisine": ["Suomalainen","Kotiruoka","Lounas"],
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Cash, Credit Card",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Esimerkkitie 12",
+      "addressLocality": "Tampere",
+      "postalCode": "33100",
+      "addressCountry": "FI"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 61.4978,
+      "longitude": 23.7610
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "10:00",
+      "closes": "15:00"
+    }],
+    "offers": {
+      "@type": "Offer",
+      "name": "Päivän lounas",
+      "description": "Lämmin pääruoka, keitto, salaattipöytä, ruokajuoma, kahvi tai tee, jälkiruoka",
+      "price": "13.50",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brown: #2d4a1f;
+      --brown-mid: #4a6b2e;
+      --brown-light: #7a9c44;
+      --kraft: #f7f3e8;
+      --kraft-dark: #dcd4b8;
+      --cream: #fafaf2;
+      --ink: #1a2812;
+      --ink-soft: #7a8770;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.65; font-size: 16px; }
+    a { color: inherit; }
+
+    .koti { background: var(--brown); color: var(--kraft); padding: 4rem 1.5rem 3rem; text-align: center; }
+    .koti-nimi { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: clamp(4.5rem, 13vw, 8rem); line-height: 0.95; letter-spacing: -0.02em; }
+    .koti-slogan { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 1.15rem; opacity: 0.82; margin-top: 0.75rem; line-height: 1.55; max-width: 28em; margin-left: auto; margin-right: auto; }
+    .koti-some { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.75rem; }
+    .koti-some a { color: var(--kraft); opacity: 0.55; transition: opacity 0.2s; display: inline-flex; align-items: center; }
+    .koti-some a:hover { opacity: 1; }
+    .koti-some svg { width: 22px; height: 22px; display: block; }
+
+    main.lista { max-width: 34rem; margin: 0 auto; padding: 3.5rem 1.5rem 1.5rem; }
+    .viikko-tag { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 1rem; color: var(--brown-mid); text-align: center; margin-bottom: 3rem; letter-spacing: 0.02em; }
+    .ensi-viikko-ilmoitus { padding: 0.85rem 1.25rem; margin-bottom: 2.5rem; text-align: center; font-style: italic; color: var(--brown-mid); font-size: 0.95rem; border-top: 1px solid var(--kraft-dark); border-bottom: 1px solid var(--kraft-dark); }
+    .latausviesti { text-align: center; padding: 3rem 1rem; color: var(--ink-soft); font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 1.05rem; line-height: 1.6; }
+
+    article.paiva { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--kraft-dark); }
+    article.paiva:last-of-type { border-bottom: none; padding-bottom: 0; }
+    article.paiva .paivaotsikko { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.7rem; }
+    article.paiva .paiva-nimi { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 1.55rem; color: var(--brown); letter-spacing: -0.01em; line-height: 1.1; }
+    article.paiva .paiva-pvm { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 1rem; color: var(--ink-soft); }
+    article.paiva.tanaan .paiva-nimi { font-size: 1.95rem; color: var(--brown-mid); }
+    article.paiva.tanaan .paiva-pvm { color: var(--brown-mid); }
+    article.paiva.suljettu { opacity: 0.55; }
+    article.paiva ul { list-style: none; }
+    article.paiva ul li { font-size: 1.05rem; padding: 0.2rem 0; color: var(--ink); }
+    article.paiva.tanaan ul li { font-size: 1.15rem; }
+    article.paiva .suljettu-teksti { font-family: 'EB Garamond', Georgia, serif; font-style: italic; color: var(--ink-soft); font-size: 1.05rem; }
+
+    .hintalaatikko { margin: 3rem auto 0; background: var(--brown); color: var(--kraft); padding: 1.6rem 1.75rem; border-radius: 8px; text-align: center; }
+    .hinta-iso { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 2.6rem; line-height: 1; margin-bottom: 0.55rem; letter-spacing: -0.02em; }
+    .hinta-sisalto { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 0.98rem; opacity: 0.88; line-height: 1.55; max-width: 26em; margin: 0 auto; }
+
+    .palaute { max-width: 34rem; margin: 0 auto; padding: 3.5rem 1.5rem 1rem; }
+    .palaute blockquote { margin: 0 0 2rem; text-align: center; }
+    .palaute blockquote:last-of-type { margin-bottom: 1.5rem; }
+    .palaute blockquote p { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 1.15rem; line-height: 1.55; color: var(--ink); margin-bottom: 0.5rem; }
+    .palaute blockquote cite { font-size: 0.85rem; color: var(--ink-soft); font-style: normal; }
+    .palaute-tahdet { color: #d4a04a; letter-spacing: 0.05em; }
+    .palaute-yhteenveto { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--kraft-dark); text-align: center; font-size: 0.94rem; color: var(--ink-soft); }
+    .palaute-yhteenveto .iso-rating { font-family: 'Playfair Display', Georgia, serif; color: var(--brown); font-size: 1.5em; font-weight: 700; vertical-align: -0.08em; margin-right: 0.15em; }
+    .palaute-yhteenveto a { color: var(--brown); text-decoration: none; margin-left: 0.4em; font-size: 1.15em; }
+    .palaute-yhteenveto a:hover { text-decoration: underline; }
+
+    footer { background: var(--kraft-dark); padding: 3.5rem 1.5rem 2rem; color: var(--ink); margin-top: 3rem; }
+    .footer-grid { max-width: 48rem; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2.25rem 2rem; }
+    .footer-grid section h3 { font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brown-mid); margin-bottom: 0.65rem; font-weight: 600; }
+    .footer-grid section p { font-size: 0.96rem; margin-bottom: 0.35rem; line-height: 1.6; }
+    .footer-grid section .lounas-aika { margin-top: 0.6rem; color: var(--brown-mid); font-weight: 500; }
+    .footer-grid section .lisatieto { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 0.92rem; color: var(--ink-soft); margin-top: 0.3rem; line-height: 1.5; }
+    .footer-grid section a { color: var(--brown); text-decoration: underline; text-decoration-color: rgba(0,0,0,0.18); text-underline-offset: 4px; }
+    .footer-grid section a:hover { text-decoration-color: currentColor; }
+    .footer-pohja { max-width: 48rem; margin: 2.75rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; font-size: 0.84rem; color: var(--ink-soft); }
+
+    @media (max-width: 480px) {
+      .koti { padding: 3rem 1.5rem 2rem; }
+      .koti-slogan { font-size: 1.05rem; }
+      main.lista { padding: 2.5rem 1.25rem 1.5rem; }
+      article.paiva .paiva-nimi { font-size: 1.4rem; }
+      article.paiva.tanaan .paiva-nimi { font-size: 1.75rem; }
+      article.paiva ul li { font-size: 1rem; }
+      .hinta-iso { font-size: 2.2rem; }
+      .palaute { padding: 2.5rem 1.25rem 0.5rem; }
+      .palaute blockquote p { font-size: 1.05rem; }
+      footer { padding: 2.5rem 1.25rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="koti">
+    <div class="koti-nimi">aurora</div>
+    <p class="koti-slogan">Lounasravintola</p>
+    
+  </header>
+
+  <main class="lista">
+    <p class="viikko-tag">Viikko <span id="viikonro"></span></p>
+    <div id="viikko">
+      <p class="latausviesti">Ladataan listaa…</p>
+    </div>
+    <div class="hintalaatikko">
+      <div class="hinta-iso">13,50 €</div>
+      <p class="hinta-sisalto">Lämmin pääruoka, keitto, salaattipöytä, ruokajuoma, kahvi tai tee, jälkiruoka</p>
+    </div>
+  </main>
+
+  <section class="palaute">
+        <blockquote>
+          <p>"Maukasta kotiruokaa ystävällisellä palvelulla. Salaattipöytä monipuolinen ja jälkkäri vaihtelee päivittäin."</p>
+          <cite>Sami <span class="palaute-tahdet">★★★★★</span></cite>
+        </blockquote>
+        <blockquote>
+          <p>"Käyn säännöllisesti lounaalla — annokset isoja ja hinta-laatusuhde paras alueella. Suosittelen!"</p>
+          <cite>Helena <span class="palaute-tahdet">★★★★★</span></cite>
+        </blockquote>
+        <blockquote>
+          <p>"Mukava paikka, ruoka kotitekoista ja vaihtuu päivittäin. Tilat hieman ahtaat ruuhka-aikaan mutta sen kestää."</p>
+          <cite>Matti <span class="palaute-tahdet">★★★★★</span></cite>
+        </blockquote>
+    <p class="palaute-yhteenveto">
+      <span class="iso-rating">4,5</span> keskiarvo 23 arvostelusta Googlessa
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Aurora%20Tampere" target="_blank" rel="noopener">→</a>
+    </p>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <section>
+        <h3>Aukioloajat</h3>
+        <p>Maanantai–Perjantai<br>10:00–15:00</p>
+        <p class="lounas-aika">Lounas 11:00–14:00</p>
+      </section>
+      <section>
+        <h3>Käynti</h3>
+        <p>Esimerkkitie 12<br>33100 Tampere</p>
+        
+        <p style="margin-top:0.55rem"><a href="https://maps.google.com/?q=Esimerkkitie%2012%2C%2033100%20Tampere" target="_blank" rel="noopener">Reittiohjeet</a></p>
+      </section>
+      <section>
+        <h3>Yhteys</h3>
+        <p><a href="tel:040 123 4567">040 123 4567</a></p>
+        <p><a href="mailto:aurora.test@example.com">aurora.test@example.com</a></p>
+      </section>
+    </div>
+    <div class="footer-pohja">Aurora · Esimerkkitie 12, Tampere</div>
+  </footer>
+
+  <script>
+    const API_URL = "https://whatsapp-webhook.villemar.workers.dev/api/menu/aurora";
+    const PAIVAT = ["maanantai", "tiistai", "keskiviikko", "torstai", "perjantai"];
+    const PAIVA_NIMET = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai"];
+    const PUHELIN_NAYTTO = "040 123 4567";
+
+    function isoWeekNumber(d){const x=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));x.setUTCDate(x.getUTCDate()+4-(x.getUTCDay()||7));const y=new Date(Date.UTC(x.getUTCFullYear(),0,1));return Math.ceil((((x-y)/86400000)+1)/7)}
+    function mondayOf(date){const d=new Date(date);d.setHours(0,0,0,0);const day=d.getDay();const diff=day===0?-6:1-day;d.setDate(d.getDate()+diff);return d}
+    function parseWeekStart(s){if(!s)return null;const d=new Date(s+'T00:00:00');if(isNaN(d.getTime()))return null;d.setHours(0,0,0,0);return d}
+    function datesForWeek(m){const a=[];for(let i=0;i<5;i++){const d=new Date(m);d.setDate(m.getDate()+i);a.push(d)}return a}
+    function onSuljettu(r){if(!Array.isArray(r)||r.length===0)return true;return r.length===1&&/suljettu/i.test(r[0])}
+    function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+    document.getElementById('viikonro').textContent = isoWeekNumber(new Date());
+
+    async function loadMenu() {
+      try {
+        const res = await fetch(API_URL);
+        if (!res.ok) throw new Error("API virhe " + res.status);
+        const data = await res.json();
+        const hasMenu = data.maanantai || data.tiistai || data.keskiviikko || data.torstai || data.perjantai;
+        if (!hasMenu) { renderEmpty(); return; }
+        renderMenu(data);
+      } catch (e) { renderError(); }
+    }
+
+    function renderEmpty() {
+      document.getElementById('viikko').innerHTML = '<p class="latausviesti">Lista tulossa pian.</p>';
+    }
+    function renderError() {
+      document.getElementById('viikko').innerHTML = '<p class="latausviesti">Hetkinen — yritä päivittää sivu.</p>';
+    }
+
+    function renderMenu(data) {
+      const today = new Date(); today.setHours(0,0,0,0);
+      const thisMonday = mondayOf(today);
+      let menuMonday, isNextWeek = false;
+      const ws = parseWeekStart(data.weekStart);
+      if (ws) {
+        menuMonday = ws;
+        const diff = Math.round((menuMonday - thisMonday) / 86400000);
+        if (diff <= -7) { renderEmpty(); return; }
+        if (diff >= 7) isNextWeek = true;
+      } else { menuMonday = thisMonday; }
+
+      const dates = datesForWeek(menuMonday);
+      const viikko = document.getElementById('viikko');
+      viikko.innerHTML = '';
+      document.getElementById('viikonro').textContent = data.viikkoNro || isoWeekNumber(dates[0]);
+
+      if (isNextWeek) {
+        const banner = document.createElement('div');
+        banner.className = 'ensi-viikko-ilmoitus';
+        banner.textContent = 'Tämä on ensi viikon lista';
+        viikko.appendChild(banner);
+      }
+
+      let nakyviaPaivia = 0;
+      const lisaaPaiva = (paiva, i, ohitaPiilotusLogiikka) => {
+        const pvm = dates[i];
+        const isPast = pvm < today;
+        const isToday = pvm.getTime() === today.getTime();
+        if (!ohitaPiilotusLogiikka && !isNextWeek && isPast && !isToday) return false;
+
+        const ruoat = Array.isArray(data[paiva]) ? data[paiva] : [];
+        const suljettu = onSuljettu(ruoat);
+
+        const article = document.createElement('article');
+        article.className = 'paiva' + (isToday ? ' tanaan' : '') + (suljettu ? ' suljettu' : '');
+
+        const pvmStr = pvm.getDate() + '.' + (pvm.getMonth() + 1) + '.';
+        const sisalto = suljettu
+          ? '<p class="suljettu-teksti">' + escapeHtml(ruoat[0] || 'Suljettu') + '</p>'
+          : '<ul>' + ruoat.map(r => '<li>' + escapeHtml(r) + '</li>').join('') + '</ul>';
+
+        article.innerHTML =
+          '<div class="paivaotsikko">' +
+            '<span class="paiva-nimi">' + PAIVA_NIMET[i] + '</span>' +
+            '<span class="paiva-pvm">' + pvmStr + '</span>' +
+          '</div>' +
+          sisalto;
+
+        viikko.appendChild(article);
+        return true;
+      };
+
+      PAIVAT.forEach((paiva, i) => { if (lisaaPaiva(paiva, i, false)) nakyviaPaivia++; });
+
+      if (!isNextWeek && nakyviaPaivia === 0) {
+        viikko.innerHTML = '';
+        PAIVAT.forEach((paiva, i) => lisaaPaiva(paiva, i, true));
+      }
+    }
+
+    loadMenu();
+    setInterval(loadMenu, 10 * 60 * 1000);
+  </script>
+</body>
+</html>
