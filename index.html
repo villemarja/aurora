@@ -164,8 +164,8 @@
       <p class="latausviesti">Ladataan listaa…</p>
     </div>
     <div class="hintalaatikko">
-      <div class="hinta-iso">13,50 €</div>
-      <p class="hinta-sisalto">Lämmin pääruoka, keitto, salaattipöytä, ruokajuoma, kahvi tai tee, jälkiruoka</p>
+      <div class="hinta-iso" id="hinta">13,50 €</div>
+      <p class="hinta-sisalto" id="sisaltyy">Lämmin pääruoka, keitto, salaattipöytä, ruokajuoma, kahvi tai tee, jälkiruoka</p>
     </div>
   </main>
 
@@ -192,8 +192,8 @@
     <div class="footer-grid">
       <section>
         <h3>Aukioloajat</h3>
-        <p>Maanantai–Perjantai<br>10:00–15:00</p>
-        <p class="lounas-aika">Lounas 11:00–14:00</p>
+        <p id="aukiolo">Maanantai–Perjantai<br>10:00–15:00</p>
+        <p class="lounas-aika" id="lounasaika">Lounas 11:00–14:00</p>
       </section>
       <section>
         <h3>Käynti</h3>
@@ -233,7 +233,18 @@
         const hasMenu = data.maanantai || data.tiistai || data.keskiviikko || data.torstai || data.perjantai;
         if (!hasMenu) { renderEmpty(); return; }
         renderMenu(data);
+        sovellaTiedot(data.tiedot);
       } catch (e) { renderError(); }
+    }
+
+    // Kuvasta poimitut tiedot (hinta, sisältyy, lounasaika, aukioloajat) ohittavat staattiset arvot
+    function sovellaTiedot(t) {
+      if (!t || typeof t !== 'object') return;
+      const set = (id, txt) => { const el = document.getElementById(id); if (el && txt) { el.textContent = txt; el.hidden = false; } };
+      if (t.hinta) set('hinta', t.hinta);
+      if (t.sisaltyy) set('sisaltyy', t.sisaltyy);
+      if (t.lounasaika) set('lounasaika', 'Lounas ' + t.lounasaika);
+      if (t.aukioloajat) set('aukiolo', t.aukioloajat);
     }
 
     function renderEmpty() {
@@ -241,6 +252,21 @@
     }
     function renderError() {
       document.getElementById('viikko').innerHTML = '<p class="latausviesti">Hetkinen — yritä päivittää sivu.</p>';
+    }
+
+    // Kuvasta luetut tiedot korvaavat sivun oletusarvot (vain ne jotka tulivat mukana)
+    function paivitaTiedot(t) {
+      if (!t) return;
+      const aseta = (id, arvo, muotoile) => {
+        const el = document.getElementById(id);
+        if (!el || !arvo) return;
+        el.textContent = muotoile ? muotoile(arvo) : arvo;
+        el.hidden = false;
+      };
+      aseta('hinta', t.hinta, v => /[€]/.test(v) ? v : v + ' €');
+      aseta('sisaltyy', t.sisaltyy);
+      aseta('lounasaika', t.lounasaika, v => 'Lounas ' + v);
+      aseta('aukiolo', t.aukioloajat);
     }
 
     function renderMenu(data) {
@@ -259,6 +285,7 @@
       const viikko = document.getElementById('viikko');
       viikko.innerHTML = '';
       document.getElementById('viikonro').textContent = data.viikkoNro || isoWeekNumber(dates[0]);
+      paivitaTiedot(data.tiedot);
 
       if (isNextWeek) {
         const banner = document.createElement('div');
