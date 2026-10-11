@@ -241,7 +241,8 @@
     function sovellaTiedot(t) {
       if (!t || typeof t !== 'object') return;
       const set = (id, txt) => { const el = document.getElementById(id); if (el && txt) { el.textContent = txt; el.hidden = false; } };
-      if (t.hinta) set('hinta', t.hinta);
+      // Worker tallentaa hinnan pelkkana lukuna ("13,50"); yksikko lisataan tassa.
+      if (t.hinta) set('hinta', /€/.test(t.hinta) ? t.hinta : t.hinta + ' €');
       if (t.sisaltyy) set('sisaltyy', t.sisaltyy);
       if (t.lounasaika) set('lounasaika', 'Lounas ' + t.lounasaika);
       if (t.aukioloajat) set('aukiolo', t.aukioloajat);
