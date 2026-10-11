@@ -335,5 +335,37 @@
     loadMenu();
     setInterval(loadMenu, 10 * 60 * 1000);
   </script>
+
+<!-- Tiedote: ravintoloitsija asettaa taman hallintasivulta. Itsenainen lohko,
+     joka ei koske sivun muuhun renderointiin. Kun tiedote piilottaa listan,
+     worker jattaa viikonpaivat pois vastauksesta, ja tama piilottaa lisaksi
+     staattisen hintalaatikon ettei sivulle jaa vanhentunutta hintaa. -->
+<style>
+  .tiedote{background:var(--brown,#4a3728);color:var(--kraft,#f3ece1);
+    border-radius:8px;padding:1.4rem 1.6rem;margin:0 0 2.6rem;text-align:center}
+  .tiedote p{margin:0;font-size:1.08rem;line-height:1.6}
+  @media (max-width:640px){.tiedote{padding:1.2rem;margin-bottom:2rem}}
+</style>
+<script>
+(async () => {
+  try {
+    const r = await fetch("https://whatsapp-webhook.villemar.workers.dev/api/menu/aurora");
+    if (!r.ok) return;
+    const d = await r.json();
+    if (!d || !d.tiedote || !d.tiedote.viesti) return;
+    const el = document.createElement("div");
+    el.className = "tiedote";
+    el.setAttribute("role", "status");
+    const p = document.createElement("p");
+    p.textContent = d.tiedote.viesti;
+    el.appendChild(p);
+    const main = document.querySelector("main") || document.body;
+    main.insertBefore(el, main.firstChild);
+    if (d.tiedote.piilotaLista) {
+      document.querySelectorAll(".lista, .hintalaatikko").forEach(n => { n.hidden = true; });
+    }
+  } catch (_) {}
+})();
+</script>
 </body>
 </html>
