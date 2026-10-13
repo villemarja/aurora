@@ -114,6 +114,8 @@
     .hintalaatikko { margin: 3rem auto 0; background: var(--brown); color: var(--kraft); padding: 1.6rem 1.75rem; border-radius: 8px; text-align: center; }
     .hinta-iso { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 2.6rem; line-height: 1; margin-bottom: 0.55rem; letter-spacing: -0.02em; }
     .hinta-sisalto { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 0.98rem; opacity: 0.88; line-height: 1.55; max-width: 26em; margin: 0 auto; }
+    .hinta-lisat { list-style: none; max-width: 26em; margin: 1.1rem auto 0; padding: 1rem 0 0; border-top: 1px solid rgba(255, 255, 255, 0.22); font-size: 0.95rem; line-height: 1.5; }
+    .hinta-lisat li { padding: 0.15rem 0; }
 
     .palaute { max-width: 34rem; margin: 0 auto; padding: 3.5rem 1.5rem 1rem; }
     .palaute blockquote { margin: 0 0 2rem; text-align: center; }
@@ -166,6 +168,7 @@
     <div class="hintalaatikko">
       <div class="hinta-iso" id="hinta">13,50 €</div>
       <p class="hinta-sisalto" id="sisaltyy">Lämmin pääruoka, keitto, salaattipöytä, ruokajuoma, kahvi tai tee, jälkiruoka</p>
+      <ul class="hinta-lisat" id="lisat" hidden></ul>
     </div>
   </main>
 
@@ -213,13 +216,13 @@
   <script>
     const API_URL = "https://whatsapp-webhook.villemar.workers.dev/api/menu/aurora";
     const PAIVAT = ["maanantai", "tiistai", "keskiviikko", "torstai", "perjantai"];
-    const PAIVA_NIMET = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai"];
+    const PAIVA_NIMET = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"];
     const PUHELIN_NAYTTO = "040 123 4567";
 
     function isoWeekNumber(d){const x=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));x.setUTCDate(x.getUTCDate()+4-(x.getUTCDay()||7));const y=new Date(Date.UTC(x.getUTCFullYear(),0,1));return Math.ceil((((x-y)/86400000)+1)/7)}
     function mondayOf(date){const d=new Date(date);d.setHours(0,0,0,0);const day=d.getDay();const diff=day===0?-6:1-day;d.setDate(d.getDate()+diff);return d}
     function parseWeekStart(s){if(!s)return null;const d=new Date(s+'T00:00:00');if(isNaN(d.getTime()))return null;d.setHours(0,0,0,0);return d}
-    function datesForWeek(m){const a=[];for(let i=0;i<5;i++){const d=new Date(m);d.setDate(m.getDate()+i);a.push(d)}return a}
+    function datesForWeek(m){const a=[];for(let i=0;i<7;i++){const d=new Date(m);d.setDate(m.getDate()+i);a.push(d)}return a}
     function onSuljettu(r){if(!Array.isArray(r)||r.length===0)return true;return r.length===1&&/suljettu/i.test(r[0])}
     function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 
@@ -249,6 +252,7 @@
     }
 
     function renderEmpty() {
+      naytaLisat(null);
       document.getElementById('viikko').innerHTML = '<p class="latausviesti">Lista tulossa pian.</p>';
     }
     function renderError() {
@@ -270,7 +274,17 @@
       aseta('aukiolo', t.aukioloajat);
     }
 
+    // Muut hinnat, viikon erikoiset ja kampanjat: yksi rivi per asia hintalaatikon alla
+    function naytaLisat(lisat) {
+      const ul = document.getElementById('lisat');
+      if (!ul) return;
+      const rivit = Array.isArray(lisat) ? lisat.filter(Boolean) : [];
+      ul.innerHTML = rivit.map(r => '<li>' + escapeHtml(r) + '</li>').join('');
+      ul.hidden = rivit.length === 0;
+    }
+
     function renderMenu(data) {
+      naytaLisat(data.lisat);
       const today = new Date(); today.setHours(0,0,0,0);
       const thisMonday = mondayOf(today);
       let menuMonday, isNextWeek = false;
@@ -325,6 +339,10 @@
       };
 
       PAIVAT.forEach((paiva, i) => { if (lisaaPaiva(paiva, i, false)) nakyviaPaivia++; });
+      // Viikonloppu vain jos listassa on sille ruokia (useimmat lounaspaikat ovat kiinni)
+      ['lauantai', 'sunnuntai'].forEach((paiva, j) => {
+        if (Array.isArray(data[paiva]) && data[paiva].length && !onSuljettu(data[paiva]) && lisaaPaiva(paiva, 5 + j, false)) nakyviaPaivia++;
+      });
 
       if (!isNextWeek && nakyviaPaivia === 0) {
         // Viikonloppu: kuluva viikko on ohi eikä uutta ole julkaistu
