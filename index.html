@@ -66,10 +66,16 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    /* Fontit tarjoillaan omalta palvelimelta (SIL OFL 1.1, ks. LISENSSIT.md). Vain käytetyt painot. */
+    @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/playfair-display-latin-700-normal.woff2') format('woff2'); }
+    @font-face { font-family: 'EB Garamond'; font-style: italic; font-weight: 400; font-display: swap; src: url('/fonts/eb-garamond-latin-400-italic.woff2') format('woff2'); }
+    @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/dm-sans-latin-400-normal.woff2') format('woff2'); }
+    @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/dm-sans-latin-500-normal.woff2') format('woff2'); }
+    @font-face { font-family: 'DM Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/dm-sans-latin-700-normal.woff2') format('woff2'); }
+
     :root {
       --brown: #2d4a1f;
       --brown-mid: #4a6b2e;
@@ -95,7 +101,7 @@
 
     main.lista { max-width: 34rem; margin: 0 auto; padding: 3.5rem 1.5rem 1.5rem; }
     .viikko-tag { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 1rem; color: var(--brown-mid); text-align: center; margin-bottom: 3rem; letter-spacing: 0.02em; }
-    .ensi-viikko-ilmoitus { padding: 0.85rem 1.25rem; margin-bottom: 2.5rem; text-align: center; font-style: italic; color: var(--brown-mid); font-size: 0.95rem; border-top: 1px solid var(--kraft-dark); border-bottom: 1px solid var(--kraft-dark); }
+    .ensi-viikko-ilmoitus { padding: 0.85rem 1.25rem; margin-bottom: 2.5rem; text-align: center; font-family: 'EB Garamond', Georgia, serif; font-style: italic; color: var(--brown-mid); font-size: 0.95rem; border-top: 1px solid var(--kraft-dark); border-bottom: 1px solid var(--kraft-dark); }
     .latausviesti { text-align: center; padding: 3rem 1rem; color: var(--ink-soft); font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 1.05rem; line-height: 1.6; }
 
     article.paiva { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--kraft-dark); }
@@ -125,7 +131,7 @@
     .palaute-tahdet { color: #d4a04a; letter-spacing: 0.05em; }
     .palaute-yhteenveto { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--kraft-dark); text-align: center; font-size: 0.94rem; color: var(--ink-soft); }
     .palaute-yhteenveto .iso-rating { font-family: 'Playfair Display', Georgia, serif; color: var(--brown); font-size: 1.5em; font-weight: 700; vertical-align: -0.08em; margin-right: 0.15em; }
-    .palaute-yhteenveto a { color: var(--brown); text-decoration: none; margin-left: 0.4em; font-size: 1.15em; }
+    .palaute-yhteenveto a { color: var(--brown); text-decoration: none; margin-left: 0.2em; padding: 0.6em 0.5em; font-size: 1.15em; }
     .palaute-yhteenveto a:hover { text-decoration: underline; }
 
     footer { background: var(--kraft-dark); padding: 3.5rem 1.5rem 2rem; color: var(--ink); margin-top: 3rem; }
@@ -187,7 +193,7 @@
         </blockquote>
     <p class="palaute-yhteenveto">
       <span class="iso-rating">4,5</span> keskiarvo 23 arvostelusta Googlessa
-      <a href="https://www.google.com/maps/search/?api=1&amp;query=Aurora%20Tampere" target="_blank" rel="noopener">→</a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Aurora%20Tampere" target="_blank" rel="noopener" aria-label="Katso arvostelut Googlessa">→</a>
     </p>
   </section>
 
